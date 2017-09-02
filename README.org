@@ -1,0 +1,5 @@
+#+TITLE: elfeed-speedbar
+#+AUTHOR: Andrea Zagli
+
+* elfeed-speedbar
+  Speedbar support for elfeed
