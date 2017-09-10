@@ -66,6 +66,10 @@
 	 'elfeed~speedbar-feed
 	 feed-title)))
 
+(defun elfeed~speedbar-feed (&optional text token ident)
+  "Filter news by TOKEN. TEXT and INDENT are not used."
+  (speedbar-with-attached-buffer (elfeed-search-set-filter (concat elfeed-search-filter " " token))))
+
 ;;;###autoload
 (defun elfeed-search-speedbar-buttons (buffer)
   "Create buttons for any elfeed BUFFER."
@@ -73,9 +77,6 @@
   (erase-buffer)
   (insert (propertize "* elfeed\n\n" 'face 'italic))
 
-  (insert (propertize " Bookmarks\n" 'face 'italic))
-  ;;;(mu4e~speedbar-render-bookmark-list)
-  (insert "\n")
   (insert (propertize " Feeds\n" 'face 'italic))
   (elfeed~speedbar-render-feeds-list)
   )
